@@ -102,7 +102,7 @@ if urllib_request is None:
                         (url, req.status_code))
 else:
     def _fetch_url(url, data, headers):
-        req = urllib_request.Request(url, data, headers)
+        req = urllib_request.Request(url, data.encode('utf-8'), headers)
         h = urllib_request.urlopen(req)
         resp = h.read()
         return resp
